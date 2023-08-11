@@ -5,7 +5,7 @@ pygame.init()
 
 # 화면 초기화
 display = (800, 480)
-screen = pygame.display.set_mode(display)
+screen = pygame.display.set_mode(display, FULLSCREEN)
 pygame.display.set_caption("Pygame Example")
 
 # 이미지 로드
