@@ -11,7 +11,7 @@ pygame.display.set_caption("Pygame Example")
 # 이미지 로드
 scale = 0.4
 image = pygame.image.load('./map.png')
-image = pygame.transform.scale(image, (1327 * scale, 515 * scale))  # 이미지 크기 조절
+image = pygame.transform.scale(image, (int(1327 * scale), int(515 * scale)))  # 이미지 크기 조절
 
 # 폰트 설정
 font = pygame.font.Font(None, 150)
