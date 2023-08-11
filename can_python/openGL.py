@@ -54,8 +54,6 @@ def draw_text_centered(text, center_x, center_y, size):
     text_width = text_surface.get_width()
     text_height = text_surface.get_height()
 
-    print(text_width, text_height)
-
     text_data = pygame.image.tostring(text_surface, "RGBA", True)  # 렌더링한 텍스트 데이터 가져오기
 
     glEnable(GL_BLEND)
@@ -111,7 +109,6 @@ def drawPicture(centerX, centerY, width, height, textureID):
 def main():
     pygame.init()
     image = pygame.image.load('./map.png')
-    textID = loadTexture()
 
     display = (800, 480)
     screen = pygame.display.set_mode(display, DOUBLEBUF | OPENGL) #  | FULLSCREEN
