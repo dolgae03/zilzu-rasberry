@@ -5,7 +5,7 @@ pygame.init()
 
 # 화면 초기화
 display = (800, 480)
-screen = pygame.display.set_mode(display, FULLSCREEN)
+screen = pygame.display.set_mode(display)
 pygame.display.set_caption("Pygame Example")
 
 # 이미지 로드
@@ -36,7 +36,7 @@ def draw_percentage_box(percentage, x, y, width, height):
 def main():
     clock = pygame.time.Clock()
 
-    while True:
+    for idx in range(100):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -52,13 +52,27 @@ def main():
         # 오른쪽에 사각형 표시 (백분율: 50%)
         percentage = 50  # 여기에 원하는 백분율 값을 입력해주세요. (0 ~ 1 사이 값)
         #drawAccelPercentage(10)
-        draw_text_centered(f"{percentage}%",685, 480 - 420, 100)
+        # 베터리
+        draw_text_centered(f"{percentage:.1f}V",685, 480 - 420, 100)
+        # Temperture Motor
+        draw_text_centered(f"M: {30}'C",150, 480 - 200, 100)
+        draw_text_centered(f"C: {35}'C",420, 480 - 200, 100)
+        # Tempurture Con
+        
+        # Speed 
+        draw_text_centered(f"{35}",100, 480 - 100, 100)
+        draw_text_centered(f"km/h",250, 480 - 100, 100)
+
+        draw_text_centered(f"{'D'}",520, 480 - 395, 150)
+
+        draw_text_centered(f"Error",440, 480 - 105, 100)
+        
         #drawBatteryPercentage(30)
 
         draw_percentage_box(percentage, 620, 100, 130, 350)
 
         # 이미지 표시
-        screen.blit(image, (50, 370 - 135))
+        #screen.blit(image, (50, 370 - 135))
 
         scale = 0.4
         #drawPicture(300, 135, 1327 * scale,515 * scale, textID)
@@ -68,6 +82,8 @@ def main():
 
         pygame.display.flip()
         clock.tick(60)  # FPS 제한
+        
+        pygame.time.wait(100)
 
 if __name__ == "__main__":
     main()

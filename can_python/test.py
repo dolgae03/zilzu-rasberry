@@ -80,12 +80,22 @@ def MCU_RECIEVE_2(data):
     #return Controller_Temperture, Motor_Temperture, Accelator_Opening, status, error
     return Controller_Temperture, Motor_Temperture, Accelator_Opening
 
-if not os.path.isfile('./can_data_1.csv'):
-    with open('can_data_1.csv', 'w') as f:
+import datetime
+
+# 현재 날짜와 시간 가져오기
+current_datetime = datetime.datetime.now()
+
+# 날짜와 시간을 원하는 형식으로 포맷팅
+yearandday = current_datetime.strftime("%Y_%m_%d")
+now_time = current_datetime.strftime("%H_%M_%S")
+
+
+if not os.path.isfile(f'./can_data_1_{yearandday}.csv'):
+    with open(f'./can_data_1_{yearandday}.csv', 'w') as f:
         f.write('Timestamp,BUS_Voltage(V),BUS_Current(A),BUS_Phase_Current(A),BUS_RoationSpeed(rpm)\n')
 
-if not os.path.isfile('./can_data_2.csv'):
-    with open('can_data_2.csv', 'w') as f:
+if not os.path.isfile(f'./can_data_2_{yearandday}.csv'):
+    with open(f'./can_data_2_{yearandday}.csv', 'w') as f:
         f.write('Timestamp,Controller_Teperture(C),Motor_Temperture(C),Accelator_Opening(%),STATUS,ERROR\n')
 
 ####
